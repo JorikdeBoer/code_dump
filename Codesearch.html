@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- The overview page of the Codedump site -->
+        <title>	Codedump </title>
+
+        <!-- Link to css style file -->
+        <link type="text/css" rel="stylesheet" href="CodeDump.css" />
+	    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+        </style>
+     </head>
+
+    <script>
+    // Get all code with the search input
+    function getsearchresults() {
+       var xhr = new XMLHttpRequest();
+       var search =document.output.zoekwoord.value;
+       var url = "http://localhost/Codedump/Codedump_API.php?search="+search;
+       xhr.open('GET', url, true);
+       xhr.onload = function (e) {
+           if (xhr.readyState === 4) {
+               if (xhr.status === 200) {
+                   // The reponse contains all blogs in the databse with search term
+                   document.output.outputtext.value =
+                   xhr.response;
+                   console.log(xhr.response);
+               }
+               else {
+                   console.error(xhr.statusText);
+               }
+           }
+       };
+       xhr.onerror = function (e) {
+             console.error(xhr.statusText);
+       };
+       xhr.send(null);
+    }
+    </script>
+
+    <!-- Insert background with clouds -->
+    <body background="achtergrond.jpg">
+        <!--Build-up of home page -->
+        <div id="Total">
+            <div id="Menu">
+                <div id="Welcome">
+                    <h1 class="welcome"> <b> Zoek je code terug!</h1>
+                        <div style="clear:both"></div>
+                        <!-- Outputbox: copy paste the code in the textarea with your name -->
+                        <!-- result of searchfield -->
+                        <div class="card">
+                            <div class="card-header">
+                                <!-- Outputbox: All the blogs with author, title & text ordered by descending ID numbers found with a certain search input -->
+                                <form name="output" action="">
+                                <div id="Outputbox">
+                                    <div class="column">
+                                        <h1>Zoek je code met je naam</h1>
+                                        Je naam:  <input name="zoekwoord" placeholder="Naam" type="text" />
+                                        <!-- Button to search into database -->
+                                        <input type="button" name="search" onClick="getsearchresults()" value="Zoek je code" /><br><br>
+                                        <textarea name="outputtext" cols="90" rows="20"></textarea><br>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

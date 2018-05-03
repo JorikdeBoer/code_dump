@@ -1,0 +1,76 @@
+/* CSS Document Blog application Scripto*/
+
+/* basic elements */
+
+
+body {
+    background="achtergrond.jpg">  
+	padding: 35px;
+    margin: 30px;
+  	font: 18px Georgia, Serif; 	 
+	text-align: center; 
+	}
+
+h1 {
+    font: 18px Georgia, Serif; 	
+    text-align: center;
+    color: solid rgb(255, 255, 255);
+    }
+
+#Total{
+    margin:0 auto;
+    padding-bottom:25px;
+    background:rgb(153, 0, 0);
+    width:60%;
+    border:1px solid rgb(0, 0, 0);}
+}
+
+#menu { padding:12.5px 25px 12.5px 25px; }
+
+/* Locatie welkomtekst */
+.welcome { 
+    /*float:center;*/
+    background-color: rgb(224, 224, 224);
+    padding: 20px;
+    text-align: center;
+}
+
+#Inputbox{
+    font: 16px Georgia, Serif; 	 
+    /*text-align:left;*/
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:5px;
+    background:rgb(238, 0, 0);
+    height:370px;
+    width:90%;
+    border:1px solid rgb(0, 0, 0);
+    overflow:auto;
+    /*float:center;*/ }  
+
+input[type=submit] {
+   	background-color:rgb(255, 255, 255);
+	font-size:16px;
+	}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: rgb(224, 224, 224));
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: rgb(224, 224, 224);
+    color: black;}
+}
