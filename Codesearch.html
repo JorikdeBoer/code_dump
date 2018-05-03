@@ -21,7 +21,7 @@
     function getsearchresults() {
        var xhr = new XMLHttpRequest();
        var search =document.output.zoekwoord.value;
-       var url = "http://localhost/Codedump/Codedump_API.php?search="+search;
+       var url = "http://localhost/code_dump/Codedump_API.php?search="+search;
        xhr.open('GET', url, true);
        xhr.onload = function (e) {
            if (xhr.readyState === 4) {

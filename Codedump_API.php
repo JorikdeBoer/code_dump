@@ -4,6 +4,7 @@
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: *");
     $verb = $_SERVER['REQUEST_METHOD'];
+
     //Global variables
     $blogs_numbers = array();
     $GLOBALS['servername'] = "localhost";
@@ -13,7 +14,7 @@
 
     // All POST requests
     if ($verb == 'POST'){
-        if (isset( $_POST["code_post"] )){
+        if (isset( $_POST["name"] )){
             $postname = $_POST["name"];
             $postcode = $_POST["code"];
             // Translation to make blogs with ' in the text possible
@@ -25,7 +26,7 @@
             if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);}
             // Insert code into database
-            $sql = "INSERT INTO codeposts (code, name)".
+            $sql = "INSERT INTO codedump (code, name)".
             "VALUES ('$code', '$name')";
             // Check of a new entry in database has been created
             if ($conn->query($sql) === TRUE) {
@@ -34,6 +35,10 @@
             echo "Error: " . $sql . "<br>" . $conn->error;}
             $conn->close();
         }
+        else {
+        die("Error: the required parameters are missing.");
+        }
+    }
 
     // All GET requests
     if ($verb == 'GET'){
@@ -45,13 +50,13 @@
                 die("Connection failed: " . $conn->connect_error);}
             $search_value = $_GET["search"];
             // Get search results
-            $sql = "SELECT * FROM codeposts WHERE name LIKE '%$search_value%'";
+            $sql = "SELECT * FROM codedump WHERE name LIKE '%$search_value%'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 //Output data of each row
                 while($row = $result->fetch_assoc()) {
-                    echo "" . $row["naam"]. "\r\n";
-                    echo "" . $row["code"]. "\r\n\r\n";
+                    echo "Naam: " . $row["name"]. "\r\n";
+                    echo "Code: " . $row["code"]. "\r\n\r\n";
                 }
             }
             else {
@@ -59,3 +64,5 @@
             }
             $conn->close();
         }
+    }
+?>
