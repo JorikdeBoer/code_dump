@@ -50,7 +50,7 @@
                 die("Connection failed: " . $conn->connect_error);}
             $search_value = $_GET["search"];
             // Get search results
-            $sql = "SELECT * FROM codedump WHERE name LIKE '%$search_value%'";
+            $sql = "SELECT * FROM codedump WHERE name LIKE '%$search_value%' ORDER BY id DESC";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 //Output data of each row

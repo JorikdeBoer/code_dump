@@ -21,6 +21,10 @@
     function getsearchresults() {
        var xhr = new XMLHttpRequest();
        var search =document.output.zoekwoord.value;
+       if(search.length === 0){
+          alert("Voer eerst je naam in!");
+       }
+       else{
        var url = "http://localhost/code_dump/Codedump_API.php?search="+search;
        xhr.open('GET', url, true);
        xhr.onload = function (e) {
@@ -40,6 +44,7 @@
              console.error(xhr.statusText);
        };
        xhr.send(null);
+       }
     }
     </script>
 
@@ -51,6 +56,12 @@
                 <div id="Welcome">
                     <h1 class="welcome"> <b> Zoek je code terug!</h1>
                         <div style="clear:both"></div>
+                        <!-- Navigation bar links -->
+                        <div class="topnav">
+                            <a href="Codedump.html">Dump je code</a>
+                            <a href="Codesearch.html">Zoek je code terug</a>
+                            <div style="clear:both"></div>
+                        </div>
                         <!-- Outputbox: copy paste the code in the textarea with your name -->
                         <!-- result of searchfield -->
                         <div class="card">

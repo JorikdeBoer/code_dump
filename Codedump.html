@@ -27,7 +27,7 @@
         console.log(value);
         xhr.send(value);
         alert("Je code is opgeslagen!");
-        window.location.reload();
+        window.location.replace("Codedump.html");
     }
     </script>
 
@@ -39,6 +39,12 @@
                 <div id="Welcome">
                     <h1 class="welcome"> <b> Sla hier je code op! </h1>
                         <div style="clear:both"></div>
+                            <!-- Navigation bar links -->
+                            <div class="topnav">
+                                <a href="index.html">Dump je code</a>
+                                <a href="Codesearch.html">Zoek je code terug</a>
+                                <div style="clear:both"></div>
+                            </div>
                             <!-- Inputbox: copy paste the code in the textarea with your name -->
                             <div id="inputbox">
                                 <form name="code_input" action="" method="post">
