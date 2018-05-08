@@ -20,14 +20,19 @@
     function savecode() {
         var name = document.code_input.naam.value;
         var code= document.code_input.text.value;
-        var xhr = new XMLHttpRequest();
-        var value = "name=" + name + "&code=" + code;
-        xhr.open('POST', "http://localhost/code_dump/Codedump_API.php", true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        console.log(value);
-        xhr.send(value);
-        alert("Je code is opgeslagen!");
-        window.location.replace("Codedump.html");
+        if(name.length === 0||code.length === 0){
+           alert("Voer beide velden in!");
+        }
+        else{
+            var xhr = new XMLHttpRequest();
+            var value = "name=" + name + "&code=" + code;
+            xhr.open('POST', "http://localhost/code_dump/Codedump_API.php", true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            console.log(value);
+            xhr.send(value);
+            alert("Je code is opgeslagen!");
+            window.location.replace("Codedump.html");
+        }
     }
     </script>
 
