@@ -15,8 +15,10 @@
     // All POST requests
     if ($verb == 'POST'){
         if (isset( $_POST["name"] )){
-            $postname = $_POST["name"];
-            $postcode = $_POST["code"];
+            $firstpostname = $_POST["name"];
+            $firstpostcode = $_POST["code"];
+            $postname = str_replace("andsymbol", "&", "$firstpostname");
+            $postcode = str_replace("andsymbol", "&", "$firstpostcode");
             // Translation to make blogs with ' in the text possible
             $name = str_replace("'", "''", "$postname");
             $code = str_replace("'", "''", "$postcode");

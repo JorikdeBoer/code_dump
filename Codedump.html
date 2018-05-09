@@ -20,12 +20,14 @@
     function savecode() {
         var name = document.code_input.naam.value;
         var code= document.code_input.text.value;
+        var postname = name.replace("&", "andsymbol");
+        var postcode = code.replace("&", "andsymbol");
         if(name.length === 0||code.length === 0){
            alert("Voer beide velden in!");
         }
         else{
             var xhr = new XMLHttpRequest();
-            var value = "name=" + name + "&code=" + code;
+            var value = "name=" + postname + "&code=" + postcode;
             xhr.open('POST', "http://localhost/code_dump/Codedump_API.php", true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             console.log(value);
@@ -46,7 +48,7 @@
                         <div style="clear:both"></div>
                             <!-- Navigation bar links -->
                             <div class="topnav">
-                                <a href="index.html">Dump je code</a>
+                                <a href="Codedump.html">Dump je code</a>
                                 <a href="Codesearch.html">Zoek je code terug</a>
                                 <div style="clear:both"></div>
                             </div>
