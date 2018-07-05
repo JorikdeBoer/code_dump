@@ -20,8 +20,10 @@
     function savecode() {
         var name = document.code_input.naam.value;
         var code= document.code_input.text.value;
-        var postname = name.replace("&", "andsymbol");
-        var postcode = code.replace("&", "andsymbol");
+        var postpostname = name.replace("&", "andsymbol");
+        var postpostcode = code.replace("&", "andsymbol");
+        var postname = postpostname.replace("+", "plussymbol");
+        var postcode = postpostcode.replace("+", "plussymbol");
         if(name.length === 0||code.length === 0){
            alert("Voer beide velden in!");
         }

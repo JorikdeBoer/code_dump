@@ -17,8 +17,10 @@
         if (isset( $_POST["name"] )){
             $firstpostname = $_POST["name"];
             $firstpostcode = $_POST["code"];
-            $postname = str_replace("andsymbol", "&", "$firstpostname");
-            $postcode = str_replace("andsymbol", "&", "$firstpostcode");
+            $secondpostname = str_replace("andsymbol", "&", "$firstpostname");
+            $secondpostcode = str_replace("andsymbol", "&", "$firstpostcode");
+            $postname = str_replace("plussymbol", "+", "$secondpostname");
+            $postcode = str_replace("plussymbol", "+", "$secondpostcode");
             // Translation to make blogs with ' in the text possible
             $name = str_replace("'", "''", "$postname");
             $code = str_replace("'", "''", "$postcode");
