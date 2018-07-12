@@ -20,10 +20,18 @@
     function savecode() {
         var name = document.code_input.naam.value;
         var code= document.code_input.text.value;
-        var postpostname = name.replace("&", "andsymbol");
-        var postpostcode = code.replace("&", "andsymbol");
-        var postname = postpostname.replace("+", "plussymbol");
-        var postcode = postpostcode.replace("+", "plussymbol");
+        var postpostname = name.replace(/&/g, "andsymbol");
+        var postpostcode = code.replace(/&/g, "andsymbol");
+        var zeropostname = postpostname.replace(/&&/g, "doublesymbol");
+        var zeropostcode = postpostcode.replace(/&&/g, "doublesymbol");
+        var firstpostname = zeropostname.replace(/ && /g, "thirdsymbol");
+        var firstpostcode = zeropostcode.replace(/ && /g, "thirdsymbol");
+        var secondpostname = firstpostname.replace(/\+/g, "fourthsymbol");
+        var secondpostcode = firstpostcode.replace(/\+/g, "fourthsymbol");
+        var thirdpostname = secondpostname.replace(/\++/g, "fifthsymbol");
+        var thirdpostcode = secondpostcode.replace(/\++/g, "fifthsymbol");
+        var postname = thirdpostname.replace(" ++ ", "plussymbol");
+        var postcode = thirdpostcode.replace(" ++ ", "plussymbol");
         if(name.length === 0||code.length === 0){
            alert("Voer beide velden in!");
         }

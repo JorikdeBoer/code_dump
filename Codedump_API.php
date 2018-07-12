@@ -19,8 +19,16 @@
             $firstpostcode = $_POST["code"];
             $secondpostname = str_replace("andsymbol", "&", "$firstpostname");
             $secondpostcode = str_replace("andsymbol", "&", "$firstpostcode");
-            $postname = str_replace("plussymbol", "+", "$secondpostname");
-            $postcode = str_replace("plussymbol", "+", "$secondpostcode");
+            $thirdpostname = str_replace("doublesymbol", "&&", "$secondpostname");
+            $thirdpostcode = str_replace("doublesymbol", "&&", "$secondpostcode");
+            $fourthpostname = str_replace("thirdsymbol", " && ", "$thirdpostname");
+            $fourthpostcode = str_replace("thirdsymbol", " && ", "$thirdpostcode");
+            $fifthpostname = str_replace("fourthsymbol", "+", "$fourthpostname");
+            $fifthpostcode = str_replace("fourthsymbol", "+", "$fourthpostcode");
+            $sixthpostname = str_replace("fifthsymbol", "++", "$fifthpostname");
+            $sixthpostcode = str_replace("fifthsymbol", "++", "$fifthpostcode");
+            $postname = str_replace("plussymbol", " ++ ", "$sixthpostname");
+            $postcode = str_replace("plussymbol", " ++ ", "$sixthpostcode");
             // Translation to make blogs with ' in the text possible
             $name = str_replace("'", "''", "$postname");
             $code = str_replace("'", "''", "$postcode");
