@@ -17,6 +17,8 @@
         if (isset( $_POST["name"] )){
             $firstpostname = $_POST["name"];
             $firstpostcode = $_POST["code"];
+
+            // Replace text to real & and + symbols again to post in database
             $secondpostname = str_replace("andsymbol", "&", "$firstpostname");
             $secondpostcode = str_replace("andsymbol", "&", "$firstpostcode");
             $thirdpostname = str_replace("doublesymbol", "&&", "$secondpostname");
@@ -29,14 +31,17 @@
             $sixthpostcode = str_replace("fifthsymbol", "++", "$fifthpostcode");
             $postname = str_replace("plussymbol", " ++ ", "$sixthpostname");
             $postcode = str_replace("plussymbol", " ++ ", "$sixthpostcode");
+
             // Translation to make blogs with ' in the text possible
             $name = str_replace("'", "''", "$postname");
             $code = str_replace("'", "''", "$postcode");
+
             // Create connection
             $conn = new mysqli($GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
             // Check connection
             if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);}
+
             // Insert code into database
             $sql = "INSERT INTO codedump (code, name)".
             "VALUES ('$code', '$name')";
@@ -65,7 +70,7 @@
             $sql = "SELECT * FROM codedump WHERE name LIKE '%$search_value%' ORDER BY id DESC";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
-                //Output data of each row
+                // Output data of each row
                 while($row = $result->fetch_assoc()) {
                     echo "Naam: " . $row["name"]. "\r\n";
                     echo "Code: " . $row["code"]. "\r\n\r\n";

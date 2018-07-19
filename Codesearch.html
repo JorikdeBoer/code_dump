@@ -6,7 +6,7 @@
         <title>	Codedump </title>
 
         <!-- Link to css style file -->
-        <link type="text/css" rel="stylesheet" href="CodeDump.css" />
+        <link type="text/css" rel="stylesheet" href="codedump.css" />
 	    <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
@@ -20,7 +20,7 @@
     // Get all code with the search input
     function getsearchresults() {
        var xhr = new XMLHttpRequest();
-       var search =document.output.zoekwoord.value;
+       var search =document.output.keyword.value;
        if(search.length === 0){
           alert("Voer eerst je naam in!");
        }
@@ -30,7 +30,7 @@
        xhr.onload = function (e) {
            if (xhr.readyState === 4) {
                if (xhr.status === 200) {
-                   // The reponse contains all blogs in the databse with search term
+                   // The reponse contains all blogs in the database with search term
                    document.output.outputtext.value =
                    xhr.response;
                    console.log(xhr.response);
@@ -49,7 +49,7 @@
     </script>
 
     <!-- Insert background with clouds -->
-    <body background="achtergrond.jpg">
+    <body background="background.jpg">
         <!--Build-up of home page -->
         <div id="Total">
             <div id="Menu">
@@ -66,12 +66,12 @@
                         <!-- result of searchfield -->
                         <div class="card">
                             <div class="card-header">
-                                <!-- Outputbox: All the blogs with author, title & text ordered by descending ID numbers found with a certain search input -->
+                                <!-- Outputbox: All of the codedump posts of the author, codedump posts ordered by descending ID numbers found with a certain search input -->
                                 <form name="output" action="">
                                 <div id="Outputbox">
                                     <div class="column">
                                         <h1>Zoek je code met je naam</h1>
-                                        Je naam:  <input name="zoekwoord" placeholder="Naam" type="text" />
+                                        Je naam:  <input name="keyword" placeholder="Naam" type="text" />
                                         <!-- Button to search into database -->
                                         <input type="button" name="search" onClick="getsearchresults()" value="Zoek je code" /><br><br>
                                         <textarea name="outputtext" cols="90" rows="20"></textarea><br>
