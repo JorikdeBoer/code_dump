@@ -4,15 +4,15 @@
 
 
 body {
-    background="achtergrond.jpg">  
+    background="background.jpg">
 	padding: 35px;
     margin: 30px;
-  	font: 18px Georgia, Serif; 	 
-	text-align: center; 
+  	font: 18px Georgia, Serif;
+	text-align: center;
 	}
 
 h1 {
-    font: 18px Georgia, Serif; 	
+    font: 18px Georgia, Serif;
     text-align: center;
     color: solid rgb(255, 255, 255);
     }
@@ -28,7 +28,7 @@ h1 {
 #menu { padding:12.5px 25px 12.5px 25px; }
 
 /* Locatie welkomtekst */
-.welcome { 
+.welcome {
     /*float:center;*/
     background-color: rgb(224, 224, 224);
     padding: 20px;
@@ -36,7 +36,7 @@ h1 {
 }
 
 #Inputbox{
-    font: 16px Georgia, Serif; 	 
+    font: 16px Georgia, Serif;
     /*text-align:left;*/
     margin:0 auto;
     margin-bottom:25px;
@@ -46,7 +46,7 @@ h1 {
     width:90%;
     border:1px solid rgb(0, 0, 0);
     overflow:auto;
-    /*float:center;*/ }  
+    /*float:center;*/ }
 
 input[type=submit] {
    	background-color:rgb(255, 255, 255);
