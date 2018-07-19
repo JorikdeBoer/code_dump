@@ -73,7 +73,7 @@
                 // Output data of each row
                 while($row = $result->fetch_assoc()) {
                     echo "Naam: " . $row["name"]. "\r\n";
-                    echo "Code: " . $row["code"]. "\r\n\r\n";
+                    echo "Code: \r\n" . $row["code"]. "\r\n\r\n";
                 }
             }
             else {
